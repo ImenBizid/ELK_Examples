@@ -1,6 +1,5 @@
-"template": "nginx_elastic_stack_example",
-{
 
+{
   "template": "nginx_elastic_stack_example",
   "settings": {
      "index.refresh_interval": "5s"
