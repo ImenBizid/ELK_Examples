@@ -1,3 +1,4 @@
+"template": "nginx_elastic_stack_example",
 {
 
   "template": "nginx_elastic_stack_example",
@@ -10,11 +11,10 @@
            {
               "message_field": {
                  "mapping": {
-                    "index": "analyzed",
                     "norms": false,
-                    "type": "string"
+                    "type": "text"
                  },
-                 "match_mapping_type": "keyword",
+                 "match_mapping_type": "string",
                  "match": "message"
               }
            },
@@ -24,7 +24,8 @@
                     "norms": false,
                     "type": "text",
                     "fields": {
-                       "raw": {
+                       "keyword": {
+                          "ignore_above": 256,
                           "type": "keyword"
                        }
                     }
@@ -40,14 +41,20 @@
               "properties": {
                  "location": {
                     "type": "geo_point"
+                 },
+                 "ip": {
+                   "type": "ip"
+                 },
+                 "continent_code": {
+                  "type": "keyword"
+                 },
+                 "country_name": {
+                   "type": "keyword"
                  }
               },
               "type": "object"
            },
-           "bytes": {
-              "type": "float"
-           },
-           "request": {
+           "@version": {
               "type": "keyword"
            }
         }
