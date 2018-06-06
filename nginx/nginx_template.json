@@ -14,7 +14,7 @@
                     "norms": false,
                     "type": "string"
                  },
-                 "match_mapping_type": "string",
+                 "match_mapping_type": "keyword",
                  "match": "message"
               }
            },
